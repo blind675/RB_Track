@@ -12,7 +12,7 @@ import {
 export const loadData = () => {
 	return dispatch => {
 		AsyncStorage.getItem(STATES_KEY, (err, stats_result) => {
-			if (!err) {
+			if (!err && stats_result) {
 				dispatch({
 					type: STATES_UPDATE_SUCCESS,
 					payload: JSON.parse(stats_result),
@@ -21,7 +21,7 @@ export const loadData = () => {
 		});
 
 		AsyncStorage.getItem(TIMERS_KEY, (err, timers_result) => {
-			if (!err) {
+			if (!err && timers_result) {
 				dispatch({
 					type: TIMERS_UPDATE_SUCCESS,
 					payload: JSON.parse(timers_result),
@@ -30,10 +30,10 @@ export const loadData = () => {
 		});
 
 		AsyncStorage.getItem(RIDES_KEY, (err, rides_result) => {
-			if (!err) {
+			if (!err && rides_result) {
 				dispatch({
 					type: RIDES_UPDATE_SUCCESS,
-					payload: JSON.parse(rides_result),
+					payload: JSON.parse(rides_result).rides,
 				});
 			}
 		});
@@ -62,7 +62,12 @@ export const saveData = () => {
 			})
 		);
 
-		AsyncStorage.setItem(RIDES_KEY, rides);
+		AsyncStorage.setItem(
+			RIDES_KEY,
+			JSON.stringify({
+				rides: rides,
+			})
+		);
 	};
 };
 
@@ -99,6 +104,11 @@ export const clearData = () => {
 			type: RIDES_UPDATE_SUCCESS,
 			payload: 0,
 		});
-		AsyncStorage.setItem(RIDES_KEY, 0);
+		AsyncStorage.setItem(
+			RIDES_KEY,
+			JSON.stringify({
+				rides: 0,
+			})
+		);
 	};
 };

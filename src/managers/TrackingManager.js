@@ -14,13 +14,20 @@ export type GeoPoint = {
 };
 
 class TrackingManager {
-	constructor() {
-		if (!TrackingManager.instance) {
-			return TrackingManager.instance;
+	static instance = null;
+
+	/**
+     * @returns {TrackingManager}
+     */
+	static getInstance() {
+		if (TrackingManager.instance == null) {
+			TrackingManager.instance = new TrackingManager();
 		}
 
-		TrackingManager.instance = this;
+		return this.instance;
+	}
 
+	constructor() {
 		//internal flags
 		this._accelerometerObserver = null;
 		this._accelerometerData = null;

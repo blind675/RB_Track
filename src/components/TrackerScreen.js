@@ -122,13 +122,13 @@ class TrackerScreen extends Component<Props> {
 							labelStyle={styles.sliderLabel}
 							onToggle={newState => {
 								if (!this.state.isActive) {
-									new TrackingManager().startTracking();
+									TrackingManager.getInstance().startTracking();
 									this.timer = setInterval(() => {
 										this.props.updateTimers();
 									}, 1000);
 									this.props.startNewRide();
 								} else {
-									new TrackingManager().stopTracking();
+									TrackingManager.getInstance().stopTracking();
 									clearInterval(this.timer);
 									this.props.saveData();
 								}
@@ -141,7 +141,7 @@ class TrackerScreen extends Component<Props> {
 					<TouchableOpacity
 						style={styles.buttonBorder}
 						onPress={() => {
-							new TrackingManager().stopTracking();
+							TrackingManager.getInstance().stopTracking();
 							clearInterval(this.timer);
 							this.setState({
 								isActive: false,
