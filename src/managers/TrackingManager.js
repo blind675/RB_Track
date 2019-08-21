@@ -37,15 +37,15 @@ class TrackingManager {
 		//start timestamp
 		this._lastTimestamp = Date.now();
 
-		// setUpdateIntervalForType(SensorTypes.accelerometer, 400);
-		// this._accelerometerObserver = accelerometer.subscribe(data => {
-		// 	// create new accelerometer object
-		// 	this._accelerometerData = {
-		// 		x: data.x,
-		// 		y: data.y,
-		// 		z: data.z,
-		// 	};
-		// });
+		setUpdateIntervalForType(SensorTypes.accelerometer, 400);
+		this._accelerometerObserver = accelerometer.subscribe(data => {
+			// create new accelerometer object
+			this._accelerometerData = {
+				x: data.x,
+				y: data.y,
+				z: data.z,
+			};
+		});
 
 		this._geolocationWatch = Geolocation.watchPosition(
 			position => {
@@ -60,8 +60,8 @@ class TrackingManager {
 						accelerometerData: this._accelerometerData,
 					};
 
-					//send data to firebase.. no need to call redux
-					// firebase.firestore().collection('geo_points').add(geoPoint);
+					// send data to firebase.. no need to call redux
+					firebase.firestore().collection('geo_points').add(geoPoint);
 					this._accelerometerData = [];
 
 					if (this._lastGeoPoint) {

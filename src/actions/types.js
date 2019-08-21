@@ -1,3 +1,8 @@
+// storage constants
+export const STATES_KEY = '@states_key';
+export const TIMERS_KEY = '@timers_key';
+export const RIDES_KEY = '@rides_key';
+
 // states constants
 export const STATES_UPDATE_SUCCESS = 'update_states_success';
 

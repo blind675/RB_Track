@@ -18,11 +18,15 @@ class TrackerScreen extends Component<Props> {
 		this.timer = null;
 	}
 
-	_convertMetersToKm(meters) {
+	componentDidMount(): void {
+		this.props.loadData();
+	}
+
+	_convertMetersToKm(meters): number {
 		return Math.floor(meters / 10) / 100;
 	}
 
-	_prettyPrintTime(time, extended = false) {
+	_prettyPrintTime(time, extended = false): string {
 		var hours = Math.floor(time / 3600);
 		var minutes = Math.floor(time / 60);
 		var seconds = time - minutes * 60;
@@ -40,7 +44,7 @@ class TrackerScreen extends Component<Props> {
 		return this._str_pad_left(minutes, '0', 2) + ':' + this._str_pad_left(seconds, '0', 2);
 	}
 
-	_str_pad_left(string, pad, length) {
+	_str_pad_left(string, pad, length): string {
 		return (new Array(length + 1).join(pad) + string).slice(-length);
 	}
 
@@ -94,7 +98,9 @@ class TrackerScreen extends Component<Props> {
 				</View>
 				<View style={styles.row}>
 					<Text> Total rides: </Text>
-					<Text style={styles.valuesLabels}> {this.props.rides} </Text>
+					<Text style={styles.valuesLabels}>
+						{' '}{this.props.rides}{' '}
+					</Text>
 				</View>
 				<View style={styles.flexOne} />
 				<View style={styles.row}>
@@ -124,6 +130,7 @@ class TrackerScreen extends Component<Props> {
 								} else {
 									new TrackingManager().stopTracking();
 									clearInterval(this.timer);
+									this.props.saveData();
 								}
 								this.setState({
 									isActive: !this.state.isActive,
@@ -134,10 +141,15 @@ class TrackerScreen extends Component<Props> {
 					<TouchableOpacity
 						style={styles.buttonBorder}
 						onPress={() => {
-							console.log(' - reset');
+							new TrackingManager().stopTracking();
+							clearInterval(this.timer);
+							this.setState({
+								isActive: false,
+							});
+							this.props.clearData();
 						}}
 					>
-						<Icon name="trash" size={30} color="#A0A0A0" />
+						<Icon name="trash" size={30} color="red" />
 					</TouchableOpacity>
 				</View>
 				<View style={styles.flexOne} />
@@ -206,7 +218,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
 	stats: state.stats,
 	timers: state.timers,
-	rides : state.rides,
+	rides: state.rides,
 });
 
 export default connect(mapStateToProps, actions)(TrackerScreen);
