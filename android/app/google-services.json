@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "381452575978",
+    "firebase_url": "https://rbtrack-ab0e9.firebaseio.com",
+    "project_id": "rbtrack-ab0e9",
+    "storage_bucket": "rbtrack-ab0e9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381452575978:android:9e3cb1ff0b1c8f84",
+        "android_client_info": {
+          "package_name": "com.rbtrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "381452575978-p5e297co2f53g22897gc5fkr8q287qrl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCItOptv2GoPGomSEjcfdulrqJa-A6xZ4k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "381452575978-p5e297co2f53g22897gc5fkr8q287qrl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "381452575978-aa393lcrfgod6b3tjenjtfnn9adibkec.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bob.development.RBTrack"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

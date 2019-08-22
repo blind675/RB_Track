@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import Permissions from 'react-native-permissions';
 import FlipToggle from 'react-native-flip-toggle-button';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { connect } from 'react-redux';
@@ -19,8 +20,22 @@ class TrackerScreen extends Component<Props> {
 	}
 
 	componentDidMount(): void {
+		Permissions.check('location', {type: 'always'}).then(response => {
+			// Response is one of: 'authorized', 'denied', 'restricted', or 'undetermined'
+			if (response === 'undetermined') {
+				this._requestPermission();
+			}
+		});
 		this.props.loadData();
 	}
+
+	// Request permission to access location
+	_requestPermission = () => {
+		Permissions.request('location', {type: 'always'}).then(response => {
+			// Returns once the user has chosen to 'allow' or to 'not allow' access
+			// Response is one of: 'authorized', 'denied', 'restricted', or 'undetermined'
+		});
+	};
 
 	_convertMetersToKm(meters): number {
 		return Math.floor(meters / 10) / 100;
@@ -205,13 +220,6 @@ const styles = StyleSheet.create({
 	valuesLabels: {
 		fontSize: 17,
 		marginVertical: 4,
-	},
-	textInputStyle: {
-		borderBottomColor: '#0F0F0F',
-		borderBottomWidth: 0.5,
-		margin: 16,
-		height: 35,
-		width: 200,
 	},
 });
 

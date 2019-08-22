@@ -5,7 +5,7 @@ type Props = {};
 
 class RouteScreen extends Component<Props> {
 	render() {
-		return <View style={{ flex: 1, backgroundColor: 'yellow' }} />;
+		return <View style={{ flex: 1, backgroundColor: 'white' }} />;
 	}
 }
 

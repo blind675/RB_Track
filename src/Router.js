@@ -77,13 +77,15 @@ const DrawerNavigator = createDrawerNavigator({
 		screen: Tracker_StackNavigator,
 		navigationOptions: {
 			drawerLabel: 'Tracker',
+			drawerIcon: () => <Icon name="line-chart" size={20} color="#202020" />,
 		},
 	},
 	Route: {
 		//Title
 		screen: Route_StackNavigator,
 		navigationOptions: {
-			drawerLabel: 'Route',
+			drawerLabel: 'Route - COMING SOON',
+			drawerIcon: () => <Icon name="road" size={20} color="#202020" />,
 		},
 	},
 	About: {
@@ -91,10 +93,10 @@ const DrawerNavigator = createDrawerNavigator({
 		screen: About_StackNavigator,
 		navigationOptions: {
 			drawerLabel: 'About',
+			drawerIcon: () => <Icon name="info" size={20} color="#202020" />,
 		},
 	},
 });
 
 export const Router = createAppContainer(DrawerNavigator);
-
 
