@@ -150,7 +150,7 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'secret123'
         }
-        debug {
+        release {
             storeFile file('release.keystore')
             storePassword 'secret123'
             keyAlias 'androidreleasekey'
