@@ -14,6 +14,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		50AF9DF45C4BDA37A49907C9 /* libPods-RBTrackTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB1326F096D4F82B5EF6FA6 /* libPods-RBTrackTests.a */; };
 		C476619A22F9947700D20D11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C476619922F9947700D20D11 /* GoogleService-Info.plist */; };
+		C489012F2313D87900F84A85 /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = C489012E2313D87900F84A85 /* AppCenter-Config.plist */; };
 		EA24F54A8D5DFDD2A86D3590 /* libPods-RBTrack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF4F7DD85EA60C58723C94E /* libPods-RBTrack.a */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		C45B7C7E230ADC1400583C0D /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		C45B7C7F230ADC1400583C0D /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		C476619922F9947700D20D11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "RBTrack/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C489012E2313D87900F84A85 /* AppCenter-Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "AppCenter-Config.plist"; path = "RBTrack/AppCenter-Config.plist"; sourceTree = "<group>"; };
 		CAF4F7DD85EA60C58723C94E /* libPods-RBTrack.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RBTrack.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E221FE72870526F8C2BDA18B /* libPods-RBTrack-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RBTrack-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -112,7 +114,7 @@
 		13B07FAE1A68108700A75B9A /* RBTrack */ = {
 			isa = PBXGroup;
 			children = (
-				C45B7C6F230ADC0400583C0D /* Fonts */,
+				C489012E2313D87900F84A85 /* AppCenter-Config.plist */,
 				C476619922F9947700D20D11 /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -121,6 +123,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				C45B7C6F230ADC0400583C0D /* Fonts */,
 			);
 			name = RBTrack;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				C489012F2313D87900F84A85 /* AppCenter-Config.plist in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				C476619A22F9947700D20D11 /* GoogleService-Info.plist in Resources */,
 			);

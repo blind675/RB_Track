@@ -30,7 +30,7 @@ class TrackingManager {
 	constructor() {
 		//internal flags
 		this._accelerometerObserver = null;
-		this._accelerometerData = null;
+		this._accelerometerData = [];
 		this._geolocationWatch = null;
 
 		// internal variables
@@ -40,18 +40,32 @@ class TrackingManager {
 		return this;
 	}
 
+	addAccelerometer = accelerometerObject => {
+		if (this._accelerometerData.length < 5) {
+			this._accelerometerData.push(accelerometerObject);
+		} else {
+			this._accelerometerData.push(accelerometerObject);
+			this._accelerometerData = this._accelerometerData.slice(
+				this._accelerometerData.length - 5,
+				this._accelerometerData.length
+			);
+		}
+	};
+
 	startTracking = () => {
 		//start timestamp
 		this._lastTimestamp = Date.now();
 
-		setUpdateIntervalForType(SensorTypes.accelerometer, 400);
+		// setUpdateIntervalForType(SensorTypes.accelerometer, 400);
 		this._accelerometerObserver = accelerometer.subscribe(data => {
 			// create new accelerometer object
-			this._accelerometerData = {
+			const accelerometerObject = {
 				x: data.x,
 				y: data.y,
 				z: data.z,
 			};
+
+			this.addAccelerometer(accelerometerObject);
 		});
 
 		this._geolocationWatch = Geolocation.watchPosition(
