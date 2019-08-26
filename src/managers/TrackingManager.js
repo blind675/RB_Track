@@ -1,4 +1,4 @@
-import { accelerometer, setUpdateIntervalForType, SensorTypes } from 'react-native-sensors';
+import { accelerometer } from 'react-native-sensors';
 import Geolocation from '@react-native-community/geolocation';
 import firebase from 'react-native-firebase';
 
