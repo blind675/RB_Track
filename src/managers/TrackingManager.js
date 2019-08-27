@@ -1,6 +1,7 @@
 import { accelerometer } from 'react-native-sensors';
 import Geolocation from '@react-native-community/geolocation';
 import firebase from 'react-native-firebase';
+import DeviceInfo from 'react-native-device-info';
 
 import { updateStats } from '../actions/StatsActions';
 
@@ -79,6 +80,8 @@ class TrackingManager {
 						accuracy: position.coords.accuracy,
 						altitudeAccuracy: position.coords.altitudeAccuracy,
 						accelerometerData: this._accelerometerData,
+						uniqueId: DeviceInfo.getUniqueID(),
+						manufacturer: DeviceInfo.getManufacturer(),
 					};
 
 					// send data to firebase.. no need to call redux
