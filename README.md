@@ -11,6 +11,6 @@ Mobile app for tracking electric longboards rides
 
 ### Download links
 
-    iOS     :
+ iOS     :
 
-    Android :
+ Android :

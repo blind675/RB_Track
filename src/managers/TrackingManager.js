@@ -42,16 +42,19 @@ class TrackingManager {
 	}
 
 	addAccelerometer = accelerometerObject => {
-		if (this._accelerometerData.length < 5) {
+		if (this._accelerometerData.length < 15) {
 			this._accelerometerData.push(accelerometerObject);
 		} else {
 			this._accelerometerData.push(accelerometerObject);
 			this._accelerometerData = this._accelerometerData.slice(
-				this._accelerometerData.length - 5,
+				this._accelerometerData.length - 15,
 				this._accelerometerData.length
 			);
 		}
 	};
+
+	//TODO: if user si stationary show a local notification telling him to stop his app
+	// https://github.com/wumke/react-native-local-notifications
 
 	startTracking = () => {
 		//start timestamp
