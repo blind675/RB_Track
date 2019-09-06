@@ -1,7 +1,8 @@
 # RB_Track
-Mobile app for tracking electric longboards rides
+Mobile app for tracking small electric vehicles rides.
+The data is sent to the [Google Firebase](https://https://firebase.google.com/) data-store and can be viewed on the [RB Tracking Website](https://blind675.github.io/RB_Tracker_stats/). From here the data will be labeled and used to train a Machine Learning model to determine automatically the action the rider did at a certain location.
 
-![iOS screenshot](./screenshot.png?raw=true "Title")
+![iOS screen shot](./screenshot.png?raw=true "Title")
 
 ### Build status
  
@@ -11,6 +12,6 @@ Mobile app for tracking electric longboards rides
 
 ### Download links
 
- iOS     :
+ iOS     : [Contact me](mailto:catalin.bora@gmail.com) ,because Apple testing is more complicated. 
 
- Android :
+ Android : [App Download Link](https://install.appcenter.ms/orgs/reactive-boards/apps/rbtracker-1/distribution_groups/rbstats%20android%20testers)

@@ -20,7 +20,7 @@ class TrackerScreen extends Component<Props> {
 	}
 
 	componentDidMount(): void {
-		Permissions.check('location', {type: 'always'}).then(response => {
+		Permissions.check('location', { type: 'always' }).then(response => {
 			// Response is one of: 'authorized', 'denied', 'restricted', or 'undetermined'
 			if (response === 'undetermined') {
 				this._requestPermission();
@@ -31,7 +31,7 @@ class TrackerScreen extends Component<Props> {
 
 	// Request permission to access location
 	_requestPermission = () => {
-		Permissions.request('location', {type: 'always'}).then(response => {
+		Permissions.request('location', { type: 'always' }).then(response => {
 			// Returns once the user has chosen to 'allow' or to 'not allow' access
 			// Response is one of: 'authorized', 'denied', 'restricted', or 'undetermined'
 		});
@@ -76,7 +76,7 @@ class TrackerScreen extends Component<Props> {
 				<View style={styles.flexOne} />
 				<View style={styles.row}>
 					<Text> Avg speed: </Text>
-					<Text style={styles.valuesLabels}>
+					<Text style={styles.accentValuesLabels}>
 						{`${this.props.stats.avgSpeed} km/h`}
 					</Text>
 				</View>
@@ -95,7 +95,7 @@ class TrackerScreen extends Component<Props> {
 				<View style={styles.flexOne} />
 				<View style={styles.row}>
 					<Text> Max speed: </Text>
-					<Text style={styles.valuesLabels}>
+					<Text style={styles.accentValuesLabels}>
 						{`${this.props.stats.maxSpeed} km/h`}
 					</Text>
 				</View>
@@ -142,14 +142,17 @@ class TrackerScreen extends Component<Props> {
 										this.props.updateTimers();
 									}, 1000);
 									this.props.startNewRide();
+									this.setState({
+										isActive: true,
+									});
 								} else {
 									TrackingManager.getInstance().stopTracking();
 									clearInterval(this.timer);
 									this.props.saveData();
+									this.setState({
+										isActive: false,
+									});
 								}
-								this.setState({
-									isActive: !this.state.isActive,
-								});
 							}}
 						/>
 					</View>
@@ -220,6 +223,11 @@ const styles = StyleSheet.create({
 	valuesLabels: {
 		fontSize: 17,
 		marginVertical: 4,
+	},
+	accentValuesLabels: {
+		fontSize: 17,
+		marginVertical: 4,
+		fontWeight: '700',
 	},
 });
 
