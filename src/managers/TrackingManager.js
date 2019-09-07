@@ -42,12 +42,12 @@ class TrackingManager {
 	}
 
 	addAccelerometer = accelerometerObject => {
-		if (this._accelerometerData.length < 15) {
+		if (this._accelerometerData.length < 30) {
 			this._accelerometerData.push(accelerometerObject);
 		} else {
 			this._accelerometerData.push(accelerometerObject);
 			this._accelerometerData = this._accelerometerData.slice(
-				this._accelerometerData.length - 15,
+				this._accelerometerData.length - 30,
 				this._accelerometerData.length
 			);
 		}
