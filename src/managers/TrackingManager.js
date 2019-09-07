@@ -122,10 +122,12 @@ class TrackingManager {
 
 		Geolocation.clearWatch(this._geolocationWatch);
 		Geolocation.stopObserving();
+		Geolocation.clearWatch(this._geolocationWatch);
 
 		//clear timestamp
 		this._lastTimestamp = null;
 		this._lastGeoPoint = null;
+		this._accelerometerData = [];
 	};
 
 	_distanceToPointInM = (firstGeoPoint, secondGeoPoint) => {
