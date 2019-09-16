@@ -1,3 +1,5 @@
+***Repository moved [here](https://github.com/blind675/RB_Tracker)***
+
 # RB_Track
 Mobile app for tracking small electric vehicles rides.
 The data is sent to the [Google Firebase](https://https://firebase.google.com/) data-store and can be viewed on the [RB Tracking Website](https://blind675.github.io/RB_Tracker_stats/). From here the data will be labeled and used to train a Machine Learning model to determine automatically the action the rider did at a certain location.
